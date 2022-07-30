@@ -32,3 +32,20 @@ func getOperation() string {
 	operation, _ := reader.ReadString('\n')
 	return strings.TrimSpace(operation)
 }
+
+func addNumbers(first, second float64) float64 {
+	return first + second
+}
+
+
+func subtractNumbers(first, second float64) float64 {
+	return first - second
+}
+
+func multiplyNumbers(first, second float64) float64 {
+	return first * second
+}
+
+func divideNumbers(first, second float64) float64 {
+	return first / second
+}
