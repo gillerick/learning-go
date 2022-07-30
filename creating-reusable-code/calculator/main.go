@@ -14,10 +14,27 @@ func main() {
 	firstInput := getInput("First Number")
 	secondInput := getInput("Second Number")
 
+	var result float64
+
+	//Notice here that we are executing getOperation into operation variable, before evaluating it
+	switch operation := getOperation(); operation {
+	case "+":
+		result = addNumbers(firstInput, secondInput)
+	case "-":
+		result = subtractNumbers(firstInput, secondInput)
+	case "*":
+		result = multiplyNumbers(firstInput, secondInput)
+	case "/":
+		result = divideNumbers(firstInput, secondInput)
+	default:
+		panic("Invalid operation")
+	}
+	fmt.Printf("The result is %v\n\n", result)
+
 }
 
 func getInput(prompt string) float64 {
-	fmt.Println("%v: ", prompt)
+	fmt.Printf("%v: \n", prompt)
 	input, _ := reader.ReadString('\n')
 	value, err := strconv.ParseFloat(strings.TrimSpace(input), 64)
 	if err != nil {
@@ -28,7 +45,7 @@ func getInput(prompt string) float64 {
 }
 
 func getOperation() string {
-	fmt.Print("Select an operation")
+	fmt.Println("Select an operation")
 	operation, _ := reader.ReadString('\n')
 	return strings.TrimSpace(operation)
 }
@@ -36,7 +53,6 @@ func getOperation() string {
 func addNumbers(first, second float64) float64 {
 	return first + second
 }
-
 
 func subtractNumbers(first, second float64) float64 {
 	return first - second
