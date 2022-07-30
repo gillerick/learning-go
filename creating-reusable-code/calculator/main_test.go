@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func Test_addNumbers(t *testing.T) {
 	type args struct {
@@ -12,7 +14,8 @@ func Test_addNumbers(t *testing.T) {
 		args args
 		want float64
 	}{
-		// TODO: Add test cases.
+		{"correctly add two integers", args{first: 98, second: 2}, 100},
+		{"correctly add two floating points", args{first: 98.45, second: 2.46}, 100.91},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -33,48 +36,13 @@ func Test_divideNumbers(t *testing.T) {
 		args args
 		want float64
 	}{
-		// TODO: Add test cases.
+		{"correctly divide two integers", args{first: 98, second: 2}, 49},
+		{"correctly divide two floating points", args{first: 98.45, second: 2.46}, 40.020325203252035},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := divideNumbers(tt.args.first, tt.args.second); got != tt.want {
 				t.Errorf("divideNumbers() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func Test_getInput(t *testing.T) {
-	type args struct {
-		prompt string
-	}
-	tests := []struct {
-		name string
-		args args
-		want float64
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := getInput(tt.args.prompt); got != tt.want {
-				t.Errorf("getInput() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
-func Test_getOperation(t *testing.T) {
-	tests := []struct {
-		name string
-		want string
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := getOperation(); got != tt.want {
-				t.Errorf("getOperation() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -90,7 +58,8 @@ func Test_multiplyNumbers(t *testing.T) {
 		args args
 		want float64
 	}{
-		// TODO: Add test cases.
+		{"correctly multiply two integers", args{first: 98, second: 2}, 196},
+		{"correctly multiply two floating points", args{first: 98.45, second: 2.46}, 242.187},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -111,7 +80,8 @@ func Test_subtractNumbers(t *testing.T) {
 		args args
 		want float64
 	}{
-		// TODO: Add test cases.
+		{"correctly subtract two integers", args{first: 98, second: 2}, 96},
+		{"correctly subtract two floating points", args{first: 98.45, second: 2.46}, 95.99000000000001},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
