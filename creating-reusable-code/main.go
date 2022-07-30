@@ -7,6 +7,9 @@ func main() {
 	fmt.Println("Multi-value sum is", multiSum)
 	fmt.Println("Total values is", count)
 
+	//Dog struct examples
+
+
 }
 
 func addValues(values ...int) (int, int) {
@@ -15,4 +18,11 @@ func addValues(values ...int) (int, int) {
 		total += value
 	}
 	return total, len(values)
+}
+
+
+type Dog struct {
+	Breed string
+	Weight int
+	Sound string
 }
