@@ -11,6 +11,8 @@ import (
 var reader = bufio.NewReader(os.Stdin)
 
 func main() {
+	firstInput := getInput("First Number")
+	secondInput := getInput("Second Number")
 
 }
 
@@ -23,4 +25,10 @@ func getInput(prompt string) float64 {
 		panic(message)
 	}
 	return value
+}
+
+func getOperation() string {
+	fmt.Print("Select an operation")
+	operation, _ := reader.ReadString('\n')
+	return strings.TrimSpace(operation)
 }
