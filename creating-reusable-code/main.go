@@ -8,6 +8,13 @@ func main() {
 	fmt.Println("Total values is", count)
 
 	//Dog struct examples
+	bingo := Dog{
+		Breed:  "German Shepherd",
+		Weight: 4,
+		Sound:  "Woof",
+	}
+
+	bingo.Speak() //Woof
 
 
 }
@@ -25,4 +32,8 @@ type Dog struct {
 	Breed string
 	Weight int
 	Sound string
+}
+
+func (d Dog) Speak(){
+	fmt.Println(d.Sound)
 }
