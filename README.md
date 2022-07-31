@@ -19,7 +19,10 @@ func (d Dog) Speak(){
 }
 ```
 
-In the above function,`(d Dog)` is known as the **receiver** where `d` is the **identifier** and `Dog` is the **type**. Here, we are _passing in a reference_ to a dog object.
-
+In the above function,`(d Dog)` is known as the **receiver** where `d` is the **identifier** and `Dog` is the **type**.
+Here, we are _passing in a reference_ to a dog object.
 
 #### 2. Working with Files and the Web
+
+Reading a file always produces an array of bytes.
+
