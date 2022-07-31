@@ -16,7 +16,10 @@ func main() {
 	length, err := io.WriteString(file, content)
 	checkError(err)
 	fmt.Printf("Wrote a file with %v characters\n", length)
-	defer file.Close()
+	defer func(file *os.File) {
+		err := file.Close()
+		checkError(err)
+	}(file)
 	defer readFile("./fromString.txt")
 
 }
