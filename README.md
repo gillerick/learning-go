@@ -64,3 +64,8 @@ resp, err := http.Post("http://example.com/upload", "image/jpeg", &buf)
 There is no use of the `break` keyword in Go. As soon as one of these cases is evaluated as true, it will execute the
 code in that case and then jump to the end of the switch statement.
 
+By default, the `switch` statement matches goes through all the case statement from top to bottom and tries to find case
+expression that matches the switch expression. Once the matching case is found, it exits and does not consider the other
+cases.
+
+`fallthrough` allows way around this limitation by looping through all the subsequent cases to look for any other match.
