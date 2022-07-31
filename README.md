@@ -38,6 +38,7 @@ length, err := io.WriteString(file, content)
 ```
 
 ##### 2. Reading from a file
+
 ```
 func readFile(fileName string) {
 	data, err := ioutil.ReadFile(fileName)
@@ -47,6 +48,7 @@ func readFile(fileName string) {
 ```
 
 ##### 3. Reading from a web page
+
 ```
 response, err := http.Get(url)
 ```
@@ -56,4 +58,9 @@ response, err := http.Get(url)
 ```
 resp, err := http.Post("http://example.com/upload", "image/jpeg", &buf)
 ```
+
+#### 3. Managing program workflow
+
+There is no use of the `break` keyword in Go. As soon as one of these cases is evaluated as true, it will execute the
+code in that case and then jump to the end of the switch statement.
 
