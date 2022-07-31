@@ -69,3 +69,28 @@ expression that matches the switch expression. Once the matching case is found, 
 cases.
 
 `fallthrough` allows way around this limitation by looping through all the subsequent cases to look for any other match.
+
+Go also allows for placing the executed statement after the `switch` statement then evaluating it from a variable. This
+is shown below:
+
+_Normal flow_
+
+```
+rand.Seed(time.Now().Unix())
+	dayOfWeek := rand.Intn(8) + 1
+	fmt.Println("Day of Week", dayOfWeek)
+
+	var result string
+	switch dayOfWeek {
+	case 1:
+		result = "It's Sunday. Going riding!"
+```
+
+_Alternative flow_
+```
+rand.Seed(time.Now().Unix())
+	var result string
+	switch dayOfWeek := rand.Intn(8) + 1; dayOfWeek {
+	case 1:
+		result = "It's Sunday. Going riding!"
+```
