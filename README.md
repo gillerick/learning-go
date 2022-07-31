@@ -26,3 +26,22 @@ Here, we are _passing in a reference_ to a dog object.
 
 Reading a file always produces an array of bytes.
 
+`defer` keyword defers/delays the execution of a function until the surrounding function returns. The deferred call's
+arguments are evaluated immediately, but the function call is not executed until the surrounding function returns.
+
+##### 1. Writing to a file
+
+```
+length, err := io.WriteString(file, content)
+```
+
+##### 2. Reading from a file
+```
+func readFile(fileName string) {
+	data, err := ioutil.ReadFile(fileName)
+	checkError(err)
+	fmt.Println("Text read from file:", string(data))
+}
+```
+
+
