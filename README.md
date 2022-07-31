@@ -29,6 +29,8 @@ Reading a file always produces an array of bytes.
 `defer` keyword defers/delays the execution of a function until the surrounding function returns. The deferred call's
 arguments are evaluated immediately, but the function call is not executed until the surrounding function returns.
 
+Golang's `net/http` standard library provides HTTP client and server implementations
+
 ##### 1. Writing to a file
 
 ```
@@ -44,4 +46,14 @@ func readFile(fileName string) {
 }
 ```
 
+##### 3. Reading from a web page
+```
+response, err := http.Get(url)
+```
+
+##### 4. Posting data to a web server
+
+```
+resp, err := http.Post("http://example.com/upload", "image/jpeg", &buf)
+```
 
