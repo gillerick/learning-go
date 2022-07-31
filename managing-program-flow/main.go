@@ -6,7 +6,8 @@ import (
 	"time"
 )
 
-func main()  {
+func main() {
+	//1. Switch statements
 	rand.Seed(time.Now().Unix())
 	dayOfWeek := rand.Intn(8) + 1
 	fmt.Println("Day of Week", dayOfWeek)
@@ -32,4 +33,39 @@ func main()  {
 	}
 
 	fmt.Println(result)
+
+	//2. Creating loops with for statements
+
+	authors := []string{"Charles Dickens", "Leo Tolstoy", "Vladimir Nabokov"}
+	fmt.Println(authors)
+
+	for i := 0; i < len(authors); i++ {
+		fmt.Println(authors[i])
+	}
+
+	for i := range authors {
+		fmt.Println(authors[i])
+	}
+
+	for _, author := range authors {
+		fmt.Println(author)
+	}
+
+	value := 1
+	for value < 10 {
+		fmt.Println("Value:", value)
+		value++
+	}
+
+	//Looping till a condition is reached
+	sum := 1
+	for sum < 1000 {
+		sum += sum
+		if sum > 300 {
+			goto theEnd
+		}
+	}
+
+theEnd:
+	fmt.Println("End of program")
 }

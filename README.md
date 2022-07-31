@@ -60,6 +60,7 @@ resp, err := http.Post("http://example.com/upload", "image/jpeg", &buf)
 ```
 
 #### 3. Managing program workflow
+##### 3.1. Switch statements
 
 There is no use of the `break` keyword in Go. As soon as one of these cases is evaluated as true, it will execute the
 code in that case and then jump to the end of the switch statement.
@@ -93,4 +94,52 @@ rand.Seed(time.Now().Unix())
 	switch dayOfWeek := rand.Intn(8) + 1; dayOfWeek {
 	case 1:
 		result = "It's Sunday. Going riding!"
+```
+
+##### 3.2. For loops
+
+Go offers several ways of looping through a collection using the for loop.
+
+Given an array of strings `authors := []string{"Charles Dickens", "Leo Tolstoy", "Vladimir Nabokov"}`, these are some possible ways to loop through each of the items.
+
+_Traditional for loop as in Java and C++_
+```
+for i := 0; i < len(authors); i++ {
+		fmt.Println(authors[i])
+	}
+```
+
+_Go-styled for loops_
+```
+for i := range authors {
+		fmt.Println(authors[i])
+	}
+```
+
+```
+for _, author := range authors {
+		fmt.Println(author)
+	}
+```
+
+```
+value := 1
+	for value < 10 {
+		fmt.Println("Value:", value)
+		value++
+	}
+```
+
+_Looping till a condition is reached_
+```
+sum := 1
+	for sum < 1000 {
+		sum += sum
+		if sum > 300 {
+			goto theEnd
+		}
+	}
+
+theEnd:
+	fmt.Println("End of program")
 ```
