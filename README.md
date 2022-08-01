@@ -31,13 +31,13 @@ arguments are evaluated immediately, but the function call is not executed until
 
 Golang's `net/http` standard library provides HTTP client and server implementations
 
-##### 1. Writing to a file
+##### 2.1. Writing to a file
 
 ```
 length, err := io.WriteString(file, content)
 ```
 
-##### 2. Reading from a file
+##### 2.2. Reading from a file
 
 ```
 func readFile(fileName string) {
@@ -47,19 +47,20 @@ func readFile(fileName string) {
 }
 ```
 
-##### 3. Reading from a web page
+##### 2.3. Reading from a web page
 
 ```
 response, err := http.Get(url)
 ```
 
-##### 4. Posting data to a web server
+##### 2.4. Posting data to a web server
 
 ```
 resp, err := http.Post("http://example.com/upload", "image/jpeg", &buf)
 ```
 
 #### 3. Managing program workflow
+
 ##### 3.1. Switch statements
 
 There is no use of the `break` keyword in Go. As soon as one of these cases is evaluated as true, it will execute the
@@ -88,6 +89,7 @@ rand.Seed(time.Now().Unix())
 ```
 
 _Alternative flow_
+
 ```
 rand.Seed(time.Now().Unix())
 	var result string
@@ -100,9 +102,11 @@ rand.Seed(time.Now().Unix())
 
 Go offers several ways of looping through a collection using the for loop.
 
-Given an array of strings `authors := []string{"Charles Dickens", "Leo Tolstoy", "Vladimir Nabokov"}`, these are some possible ways to loop through each of the items.
+Given an array of strings `authors := []string{"Charles Dickens", "Leo Tolstoy", "Vladimir Nabokov"}`, these are some
+possible ways to loop through each of the items.
 
 _Traditional for loop as in Java and C++_
+
 ```
 for i := 0; i < len(authors); i++ {
 		fmt.Println(authors[i])
@@ -110,6 +114,7 @@ for i := 0; i < len(authors); i++ {
 ```
 
 _Go-styled for loops_
+
 ```
 for i := range authors {
 		fmt.Println(authors[i])
@@ -131,6 +136,7 @@ value := 1
 ```
 
 _Looping till a condition is reached_
+
 ```
 sum := 1
 	for sum < 1000 {
@@ -143,3 +149,22 @@ sum := 1
 theEnd:
 	fmt.Println("End of program")
 ```
+
+#### 4. Managing complex types and collections
+
+##### 4.1. Memory management
+
+The Go runtime is statically linked into the application with memory being allocated and deallocated automatically.
+
+`make()` or `new()` can be used to initialize maps, slices and channels
+
+The `new()` function allocates but does not initialize memory. That is to say, it allocates a zeroed storage but returns
+a memory address. The `make()` function however, both allocates and initializes memory - it allocates a non-zeroed
+storage and returns a memory address.
+
+Therefore, using new instead of make in initializing a map can cause a crash. `make()` should then be used whenever the
+intent is to add data immediately to the initialized collection.
+
+`m := make(map[string]int)`
+
+
