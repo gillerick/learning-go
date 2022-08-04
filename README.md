@@ -167,4 +167,42 @@ intent is to add data immediately to the initialized collection.
 
 `m := make(map[string]int)`
 
+##### 4.2. Pointers
+
+Pointers are variables that store the memory address of other variables. A fun way to think about them is, a person
+through whom you get to another person.
+
+_Unassigned pointer_
+
+```
+var p *int
+fmt.Println("Value of p:", p)       //<nil>
+fmt.Println("Invalid pointer:", *p) //Crashes the application
+```
+
+_Valid assigned pointer_
+
+```
+someInteger := 67
+var p = &someInteger
+fmt.Println("Value of variable someInteger:", *p) //67
+fmt.Println("Value of memory address of someInteger:", p) // The memory address of someInteger (0xc0000b2008)
+
+```
+
+_Changing a value from a pointer_
+
+It should be noted that changing a value from a pointer changes the actual variable being pointed. This can be seen in the code snippet below:
+
+```
+four := 4
+pointer1 := &four
+fmt.Println("four from pointer:", *pointer1)
+
+*pointer1 = *pointer1/2 // Same as four/2
+fmt.Println("Pointer 1:", *pointer1) //2
+fmt.Println("four:", four) //2
+
+```
+
 
