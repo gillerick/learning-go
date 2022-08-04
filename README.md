@@ -233,5 +233,36 @@ Arrays in Go are objects. As such, passing them in functions would have their co
 possibilities of arrays to simply storing them with the ability to sort or modify them during runtime cumbersome. And
 that's where `slices` come in.
 
+###### 4.3.2. Slices
 
+A slice is an abstraction layer that sits on top of an array. Unlike arrays, one does not define the **size** of a slice
+during creation. That means it is possible to append and modify existing values in a slice. This is shown below:
+
+```
+cities := []string {"London", "NYC", "Colombo", "Tokyo"}
+
+OR 
+
+var cities = []string {"London", "NYC", "Colombo", "Tokyo"}
+
+OR
+ 
+var cities []string = []string {"London", "NYC", "Colombo", "Tokyo"}
+
+OR 
+
+	founders := make([]string, 5, 5) //
+	founders[0] = "Bill Gates"
+	founders[1] = "Mark Zuckerberg"
+	founders[2] = "Larry Page"
+	founders[3] = "Larry Ellison"
+	founders[4] = "Elon Musk"
+
+```
+
+To add items to a slice, one should use the built-in `append` function.
+
+To sort slices, the package `sort`, with various built-in functions for sorting different data types can be used. For
+instance, to sort a slice of integers would be `sort.Ints(numbers)` while to sort a slice of strings would
+be `sort.Strings(names)`.
 
