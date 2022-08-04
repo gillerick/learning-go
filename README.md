@@ -266,3 +266,44 @@ To sort slices, the package `sort`, with various built-in functions for sorting 
 instance, to sort a slice of integers would be `sort.Ints(numbers)` while to sort a slice of strings would
 be `sort.Strings(names)`.
 
+###### 4.3.3. Maps
+
+A map in Go is an unordered collection of `key-value` pairs. In other terms, it is as a `hash table` that lets one store
+collections of data and then arbitrarily finds them in the collection, based on their keys. The keys of a hash map can
+be any `comparable` type.
+
+Maps in Go can be created using the `make` function. 
+
+```
+books := make(map[string]string)
+books["Originals"] = "Adam Grant"
+books["Steve Jobs"] = "Walter Isaacson"
+books["Lolita"] = "Vladimir Nabokov"
+```
+
+Looping through a map can be done as below:
+
+```
+for book, author := range books {
+		fmt.Printf("Book: %v Author: %v\n", book, author)
+	}
+```
+
+It is to be noted that one should never rely on the order of map staying the same. If the order of a map is desired, one must manage that from the code. This could be done as below:
+
+```
+keys := make([]string, len(books))
+	i := 0
+	for key := range books {
+		keys[i] = key
+		i++
+	}
+
+	sort.Strings(keys)
+
+	for i := range keys {
+		fmt.Println(books[keys[i]])
+	}
+```
+
+

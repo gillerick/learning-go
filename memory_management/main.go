@@ -63,4 +63,30 @@ func main() {
 	sort.Strings(founders)
 	fmt.Println("Sorted founders:", founders) //[Bill Gates Elon Musk Gordon Moore Larry Ellison Larry Page Mark Zuckerberg]
 
+	//4. Maps in Go
+	books := make(map[string]string)
+	books["Originals"] = "Adam Grant"
+	books["Steve Jobs"] = "Walter Isaacson"
+	books["Lolita"] = "Vladimir Nabokov"
+	fmt.Println("Books:", books)
+
+	//Looping through a map collection
+	for book, author := range books {
+		fmt.Printf("Book: %v Author: %v\n", book, author)
+	}
+
+	//Ordering the elements of a map
+	keys := make([]string, len(books))
+	i := 0
+	for key := range books {
+		keys[i] = key
+		i++
+	}
+
+	sort.Strings(keys)
+
+	for i := range keys {
+		fmt.Println(books[keys[i]])
+	}
+
 }
