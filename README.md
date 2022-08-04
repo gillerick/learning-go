@@ -272,7 +272,7 @@ A map in Go is an unordered collection of `key-value` pairs. In other terms, it 
 collections of data and then arbitrarily finds them in the collection, based on their keys. The keys of a hash map can
 be any `comparable` type.
 
-Maps in Go can be created using the `make` function. 
+Maps in Go can be created using the `make` function.
 
 ```
 books := make(map[string]string)
@@ -289,7 +289,8 @@ for book, author := range books {
 	}
 ```
 
-It is to be noted that one should never rely on the order of map staying the same. If the order of a map is desired, one must manage that from the code. This could be done as below:
+It is to be noted that one should never rely on the order of map staying the same. If the order of a map is desired, one
+must manage that from the code. This could be done as below:
 
 ```
 keys := make([]string, len(books))
@@ -305,5 +306,23 @@ keys := make([]string, len(books))
 		fmt.Println(books[keys[i]])
 	}
 ```
+
+###### 4.3.4. Structs
+
+Structs in Go are similar in purpose and function to Java classes and CS structs. They encapsulate both `data`
+and `methods`. Go structs however lack in inheritance model. Each Go structure is independent with its own fields for
+data management and optionally its own methods. A struct in Go is a `custom type`.
+
+```
+type Dog struct {
+		Breed  string
+		Weight int
+	}
+	poodle := Dog{"Poodle", 2}
+	fmt.Println(poodle)
+```
+Inspecting a struct object can be done as such: `fmt.Printf("%+v\n", poodle)`
+
+
 
 

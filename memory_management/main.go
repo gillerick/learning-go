@@ -89,4 +89,13 @@ func main() {
 		fmt.Println(books[keys[i]])
 	}
 
+	//5. Grouping related values in structs
+	type Dog struct {
+		Breed  string
+		Weight int
+	}
+	poodle := Dog{"Poodle", 2}
+	fmt.Println(poodle)
+	fmt.Printf("%+v\n", poodle) //Inspecting a struct object
+
 }
