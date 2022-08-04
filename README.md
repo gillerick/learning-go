@@ -192,7 +192,8 @@ fmt.Println("Value of memory address of someInteger:", p) // The memory address 
 
 _Changing a value from a pointer_
 
-It should be noted that changing a value from a pointer changes the actual variable being pointed. This can be seen in the code snippet below:
+It should be noted that changing a value from a pointer changes the actual variable being pointed. This can be seen in
+the code snippet below:
 
 ```
 four := 4
@@ -204,5 +205,33 @@ fmt.Println("Pointer 1:", *pointer1) //2
 fmt.Println("four:", four) //2
 
 ```
+
+##### 4.3. Storing ordered values in arrays
+
+In Go, `slices` should be preferred over `arrays` in storing **ordered variables**.
+
+###### 4.3.1. Arrays
+
+The different ways of declaring arrays in Go are shown below:
+
+```
+var numbers [3]int
+numbers[0] = 34
+numbers[1] = 78
+numbers[2] = 90
+fmt.Println(numbers) // [34 78 90]
+```
+
+```
+var africanAuthors = [3]string{"Wole Soyinka", "Chimamanda Ngozi", "Ben Okri"}
+fmt.Println(africanAuthors) // [Wole Soyinka Chimamanda Ngozi Ben Okri]
+```
+
+To get the **length** of an array, use the built-in function `len`. For instance, `len(numbers)` would print 3
+
+Arrays in Go are objects. As such, passing them in functions would have their copies created. That limits the
+possibilities of arrays to simply storing them with the ability to sort or modify them during runtime cumbersome. And
+that's where `slices` come in.
+
 
 
