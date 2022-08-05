@@ -7,7 +7,7 @@ In Go, it is possible to attach functions to custom types. They are then referre
 As opposed to more completely OOP languages such as Java where _methods are members of a class_, in Go a _method is a
 member of a type_
 
-```
+```go
 type Dog struct {
 	Breed string
 	Weight int
@@ -33,13 +33,13 @@ Golang's `net/http` standard library provides HTTP client and server implementat
 
 ##### 2.1. Writing to a file
 
-```
+```go
 length, err := io.WriteString(file, content)
 ```
 
 ##### 2.2. Reading from a file
 
-```
+```go
 func readFile(fileName string) {
 	data, err := ioutil.ReadFile(fileName)
 	checkError(err)
@@ -49,13 +49,13 @@ func readFile(fileName string) {
 
 ##### 2.3. Reading from a web page
 
-```
+```go
 response, err := http.Get(url)
 ```
 
 ##### 2.4. Posting data to a web server
 
-```
+```go
 resp, err := http.Post("http://example.com/upload", "image/jpeg", &buf)
 ```
 
@@ -77,7 +77,7 @@ is shown below:
 
 _Normal flow_
 
-```
+```go
 rand.Seed(time.Now().Unix())
 	dayOfWeek := rand.Intn(8) + 1
 	fmt.Println("Day of Week", dayOfWeek)
@@ -90,7 +90,7 @@ rand.Seed(time.Now().Unix())
 
 _Alternative flow_
 
-```
+```go
 rand.Seed(time.Now().Unix())
 	var result string
 	switch dayOfWeek := rand.Intn(8) + 1; dayOfWeek {
@@ -107,7 +107,7 @@ possible ways to loop through each of the items.
 
 _Traditional for loop as in Java and C++_
 
-```
+```go
 for i := 0; i < len(authors); i++ {
 		fmt.Println(authors[i])
 	}
@@ -115,19 +115,19 @@ for i := 0; i < len(authors); i++ {
 
 _Go-styled for loops_
 
-```
+```go
 for i := range authors {
 		fmt.Println(authors[i])
 	}
 ```
 
-```
+```go
 for _, author := range authors {
 		fmt.Println(author)
 	}
 ```
 
-```
+```go
 value := 1
 	for value < 10 {
 		fmt.Println("Value:", value)
@@ -137,7 +137,7 @@ value := 1
 
 _Looping till a condition is reached_
 
-```
+```go
 sum := 1
 	for sum < 1000 {
 		sum += sum
@@ -174,7 +174,7 @@ through whom you get to another person.
 
 _Unassigned pointer_
 
-```
+```go
 var p *int
 fmt.Println("Value of p:", p)       //<nil>
 fmt.Println("Invalid pointer:", *p) //Crashes the application
@@ -182,7 +182,7 @@ fmt.Println("Invalid pointer:", *p) //Crashes the application
 
 _Valid assigned pointer_
 
-```
+```go
 someInteger := 67
 var p = &someInteger
 fmt.Println("Value of variable someInteger:", *p) //67
@@ -195,7 +195,7 @@ _Changing a value from a pointer_
 It should be noted that changing a value from a pointer changes the actual variable being pointed. This can be seen in
 the code snippet below:
 
-```
+```go
 four := 4
 pointer1 := &four
 fmt.Println("four from pointer:", *pointer1)
@@ -214,7 +214,7 @@ In Go, `slices` should be preferred over `arrays` in storing **ordered variables
 
 The different ways of declaring arrays in Go are shown below:
 
-```
+```go
 var numbers [3]int
 numbers[0] = 34
 numbers[1] = 78
@@ -222,7 +222,7 @@ numbers[2] = 90
 fmt.Println(numbers) // [34 78 90]
 ```
 
-```
+```go
 var africanAuthors = [3]string{"Wole Soyinka", "Chimamanda Ngozi", "Ben Okri"}
 fmt.Println(africanAuthors) // [Wole Soyinka Chimamanda Ngozi Ben Okri]
 ```
@@ -238,7 +238,7 @@ that's where `slices` come in.
 A slice is an abstraction layer that sits on top of an array. Unlike arrays, one does not define the **size** of a slice
 during creation. That means it is possible to append and modify existing values in a slice. This is shown below:
 
-```
+```go
 cities := []string {"London", "NYC", "Colombo", "Tokyo"}
 
 OR 
@@ -274,7 +274,7 @@ be any `comparable` type.
 
 Maps in Go can be created using the `make` function.
 
-```
+```go
 books := make(map[string]string)
 books["Originals"] = "Adam Grant"
 books["Steve Jobs"] = "Walter Isaacson"
@@ -283,7 +283,7 @@ books["Lolita"] = "Vladimir Nabokov"
 
 Looping through a map can be done as below:
 
-```
+```go
 for book, author := range books {
 		fmt.Printf("Book: %v Author: %v\n", book, author)
 	}
@@ -292,7 +292,7 @@ for book, author := range books {
 It is to be noted that one should never rely on the order of map staying the same. If the order of a map is desired, one
 must manage that from the code. This could be done as below:
 
-```
+```go
 keys := make([]string, len(books))
 	i := 0
 	for key := range books {
@@ -313,7 +313,7 @@ Structs in Go are similar in purpose and function to Java classes and CS structs
 and `methods`. Go structs however lack in inheritance model. Each Go structure is independent with its own fields for
 data management and optionally its own methods. A struct in Go is a `custom type`.
 
-```
+```go
 type Dog struct {
 		Breed  string
 		Weight int
